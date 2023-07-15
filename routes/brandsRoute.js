@@ -18,3 +18,4 @@ brandsRoute.put("/:id", isLoggedIn, isAdmin, updateBrandCtr);
 brandsRoute.delete("/:id", isLoggedIn, isAdmin, deleteBrandCtr);
 
 export default brandsRoute;
+//https://ecommerce-api-hxk5.onrender.com

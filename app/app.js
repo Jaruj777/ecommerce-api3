@@ -15,6 +15,7 @@ import reviewsRoute from "../routes/reviewsRoute.js";
 import orderRoute from "../routes/orderRoute.js";
 import Order from "../model/Order.js";
 import couponsRoute from "../routes/couponsRoute.js";
+import path from "path";
 
 dotenv.config();
 
@@ -90,8 +91,14 @@ app.post(
 
 //передавать входящие данные format
 app.use(express.json());
-
+//server static file
+app.use(express.static("public"));
 //routes
+//home route
+app.get("/", (req, res) => {
+  res.sendFile(path.join("public", "index.html"));
+});
+
 app.use("/api/v1/users/", userRoutes);
 app.use("/api/v1/products/", productRoutes);
 app.use("/api/v1/categories/", categoriesRoute);
